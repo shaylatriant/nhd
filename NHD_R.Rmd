@@ -186,7 +186,7 @@ st_write(sites_snapped, "points/output/sites_snapped.shp", append = TRUE)
 #   mapview(streams_proj, color="steelblue", layer.name="Flowlines") +
 #   mapview(reach_sites, col.regions="orange", layer.name="reach Sites")
 ```
-# Part 3? - Split the line segments by points
+# Part 3 - Split the line segments by points
 
 ```{r}
 
@@ -207,8 +207,3 @@ segments <- st_collection_extract(lwgeom::st_split(streams_proj, sites_snapped_b
 st_write(segments, "segments.shp", append = TRUE)
 
 ```
-
-```{r}
-
-```
-
