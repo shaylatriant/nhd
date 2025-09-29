@@ -186,4 +186,29 @@ st_write(sites_snapped, "points/output/sites_snapped.shp", append = TRUE)
 #   mapview(streams_proj, color="steelblue", layer.name="Flowlines") +
 #   mapview(reach_sites, col.regions="orange", layer.name="reach Sites")
 ```
+# Part 3? - Split the line segments by points
+
+```{r}
+
+# create a 1 meter buffer around snapped point
+sites_snapped_buff <- st_buffer(sites_snapped, 1)
+
+# now use lwgeom::st_split to split stream segments by the snapped points 
+# Note: if using NHD lines, this will not dissolve any segments, only split, to preserve the data (stream order, etc.) associated with each segment.
+
+# Alternate: if you want stream segments to be 1:1 for each reach, use st_union() first:
+
+# streams_proj_union <- st_union(streams_proj)
+
+segments <- st_collection_extract(lwgeom::st_split(streams_proj, sites_snapped_buff), "LINESTRING") %>% 
+  tibble::rownames_to_column(var = "rowid") %>% 
+  mutate(rowid=as.integer(rowid))
+
+st_write(segments, "segments.shp", append = TRUE)
+
+```
+
+```{r}
+
+```
 

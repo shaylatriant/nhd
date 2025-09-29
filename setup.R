@@ -21,7 +21,8 @@ packages <- c('here',
               'prettymapr',
               'rosm',
               # 'mapview',
-              'terra')
+              'terra',
+              'lwgeom')
 # use the packageLoad function we created on those packages
 
 packageLoad(packages)
