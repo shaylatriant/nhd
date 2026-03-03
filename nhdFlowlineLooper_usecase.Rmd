@@ -1,0 +1,17 @@
+---
+title: "nhdFlowlineLooper_usecase"
+output: html_document
+---
+
+# Get streamlines
+```{r}
+#Load shapefile with columns for name, long, and lat in crs = 4326
+coords <- read_csv("coordinates.csv")
+
+# Load the function
+source("nhdFlowlineLooper.R")
+
+# Use the function
+nhdFlowlineLooper(df = coords, distance = 500)
+```
+
