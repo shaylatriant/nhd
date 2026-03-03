@@ -1,4 +1,4 @@
-nhdLooper <- function(df, distance) {
+nhdFlowlineLooper <- function(df, distance) {
   
   source("setup.R")
   
