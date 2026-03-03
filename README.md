@@ -10,8 +10,14 @@ Part 3: Split lines into segments based on snapped point input
 
 A function to loop through many sets of coordinates in a dateframe to save shapefiles of the flowlines in their contributing drainage network
 
-The input dataframe should have three columns ordered as name, long, and lat.
+The input dataframe should have three columns ordered as name, long, and lat. See nhdFunctionsExamples.Rmd for how to use.
 
-# nhdFlowlineLooper_usecase.Rmd
+# nhdFlowlineSnapper.R
+
+A function to loop through many sets of coordinates in a dateframe, find the closest nhd network, generate upstream flow network, and snap the point to the closest NHD grid point. This is especially useful to prepare for a batch StreamStats order.
+
+The input dataframe should have three columns ordered as name, long, and lat. See nhdFunctionsExamples.Rmd for how to use.
+
+# nhdFunctionsExamples.Rmd
 
 Contains an example of using the nhdFlowlineLooper with a csv of input coordinates

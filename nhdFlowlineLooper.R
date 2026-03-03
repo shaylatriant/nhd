@@ -42,7 +42,9 @@ nhdFlowlineLooper <- function(df, distance) {
     
     # Optional: Write as shapefile in folder connected to ArcPro. User updated file path
     # Create folder called shapefiles
-    dir.create("shapefiles")
+    if (!dir.exists("shapefiles")) {
+      dir.create("shapefiles")
+      }
     
     st_write(flowlines, 
              dsn = paste0("shapefiles/", 
